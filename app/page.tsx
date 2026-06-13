@@ -8,7 +8,7 @@ const Map = dynamic(() => import("../app/components/Map"), {
 });
 
 export default function Home() {
-  const [coordinates, setCoordinates] = useState([]);
+  const [coordinates, setCoordinates] = useState<number[][]>([]);
 
   useEffect(() => {
     async function getRoute() {
@@ -21,5 +21,5 @@ export default function Home() {
     getRoute();
   }, []);
 
-  return <Map />;
+  return <Map coordinates={coordinates} />;
 }
