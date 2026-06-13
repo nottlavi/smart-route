@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import RouteForm from "./components/RouteForm";
 
 const Map = dynamic(() => import("../app/components/Map"), {
   ssr: false,
@@ -21,5 +22,10 @@ export default function Home() {
     getRoute();
   }, []);
 
-  return <Map coordinates={coordinates} />;
+  return (
+    <div className="flex">
+      <RouteForm />
+      <Map coordinates={coordinates} />
+    </div>
+  );
 }
