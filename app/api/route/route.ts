@@ -5,7 +5,7 @@ export async function GET(request: Request) {
 
   try {
     const res = await fetch(
-      `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${ors_api}&start=8.681495,49.41461&end=8.687872,49.420318`,
+      `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${ors_api}&start=77.2295,28.6129&end=77.2167,28.6315`,
     );
 
     const data = await res.json();

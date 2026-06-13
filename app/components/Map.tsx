@@ -10,6 +10,9 @@ export default function Map({ coordinates }: { coordinates: number[][] }) {
 
   console.log("Polyline points:", leafletCoords);
 
+  console.log(coordinates[0]);
+  console.log(leafletCoords[0]);
+
   return (
     <MapContainer
       center={[28.6139, 77.209]}
@@ -18,12 +21,7 @@ export default function Map({ coordinates }: { coordinates: number[][] }) {
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-      <Polyline
-        positions={[
-          [28.6139, 77.209],
-          [28.6239, 77.219],
-        ]}
-      />
+      <Polyline positions={leafletCoords} color="red" />
     </MapContainer>
   );
 }
