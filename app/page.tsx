@@ -14,7 +14,16 @@ export default function Home() {
   const [destCoord, setDestCoord] = useState<string>("");
 
   async function getRoute() {
-    const res = await fetch("/api/route");
+    const res = await fetch("/api/route", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        start: sourceCoord,
+        end: destCoord,
+      }),
+    });
     const data = await res.json();
 
     setCoordinates(data?.features[0]?.geometry?.coordinates);

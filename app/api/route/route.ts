@@ -1,11 +1,16 @@
 import { NextResponse } from "next/server";
 
-export async function GET(request: Request) {
+export async function POST(request: Request) {
   const ors_api = process.env.ORS_API_KEY;
+  const { start, end } = await request.json();
+
+  console.log("hey im being called");
+
+  console.log(start, end);
 
   try {
     const res = await fetch(
-      `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${ors_api}&start=77.2295,28.6129&end=77.2167,28.6315`,
+      `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${ors_api}&start=${start}&end=${end}`,
     );
 
     const data = await res.json();
