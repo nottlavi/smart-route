@@ -8,11 +8,6 @@ export default function Map({ coordinates }: { coordinates: number[][] }) {
     lng,
   ]);
 
-  console.log("Polyline points:", leafletCoords);
-
-  console.log(coordinates[0]);
-  console.log(leafletCoords[0]);
-
   return (
     <MapContainer
       center={[28.6139, 77.209]}

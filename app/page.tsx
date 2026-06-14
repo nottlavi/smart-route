@@ -10,21 +10,25 @@ const Map = dynamic(() => import("../app/components/Map"), {
 
 export default function Home() {
   const [coordinates, setCoordinates] = useState<number[][]>([]);
+  const [sourceCoord, setSourceCoord] = useState<string>("");
+  const [destCoord, setDestCoord] = useState<string>("");
 
-  useEffect(() => {
-    async function getRoute() {
-      const res = await fetch("/api/route");
-      const data = await res.json();
+  async function getRoute() {
+    const res = await fetch("/api/route");
+    const data = await res.json();
 
-      setCoordinates(data?.features[0]?.geometry?.coordinates);
-    }
-
-    getRoute();
-  }, []);
+    setCoordinates(data?.features[0]?.geometry?.coordinates);
+  }
 
   return (
     <div className="flex">
-      <RouteForm />
+      <RouteForm
+        sourceCoord={sourceCoord}
+        setSourceCoord={setSourceCoord}
+        destCoord={destCoord}
+        setDestCoord={setDestCoord}
+        getRoute={getRoute}
+      />
       <Map coordinates={coordinates} />
     </div>
   );
