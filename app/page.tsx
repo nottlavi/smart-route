@@ -9,7 +9,9 @@ const Map = dynamic(() => import("../app/components/Map"), {
 });
 
 export default function Home() {
-  const [coordinates, setCoordinates] = useState<number[][]>([]);
+  const [coordinates1, setCoordinates1] = useState<number[][]>([]);
+  const [coordinates2, setCoordinates2] = useState<number[][]>([]);
+  const [coordinates3, setCoordinates3] = useState<number[][]>([]);
   const [source, setSource] = useState<string>("");
   const [dest, setDest] = useState<string>("");
   const [sourceCoord, setSourceCoord] = useState<string>("");
@@ -45,7 +47,9 @@ export default function Home() {
 
       console.log(data);
 
-      // setCoordinates(data?.features[0]?.geometry?.coordinates);
+      setCoordinates1(data?.features[0]?.geometry?.coordinates);
+      setCoordinates2(data?.features[1]?.geometry?.coordinates);
+      setCoordinates3(data?.features[2]?.geometry?.coordinates);
     }
 
     if (sourceCoord && destCoord) getRoute();
@@ -60,7 +64,11 @@ export default function Home() {
         setDest={setDest}
         getCoords={getCoords}
       />
-      <Map coordinates={coordinates} />
+      <Map
+        coordinates1={coordinates1}
+        coordinates2={coordinates2}
+        coordinates3={coordinates3}
+      />
     </div>
   );
 }

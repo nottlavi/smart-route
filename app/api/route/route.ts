@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     const { start, end } = await request.json();
 
     const res = await fetch(
-      `https://api.openrouteservice.org/v2/directions/driving-car`,
+      `https://api.openrouteservice.org/v2/directions/driving-car/geojson`,
       {
         method: "POST",
         headers: {
