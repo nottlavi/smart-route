@@ -20,7 +20,6 @@ export default function Home() {
     //for source
     const res1 = await fetch(`/api/geocoder?place=${source}`);
     const data1 = await res1.json();
-
     setSourceCoord(data1);
 
     //for destination
@@ -28,16 +27,10 @@ export default function Home() {
     const data2 = await res2.json();
 
     setDestCoord(data2);
-
-    // console.log(data1);
-
-    // console.log(data2);
   }
 
   useEffect(() => {
     async function getRoute() {
-      console.log(sourceCoord, destCoord);
-
       const res = await fetch("/api/route", {
         method: "POST",
         headers: {
@@ -50,7 +43,9 @@ export default function Home() {
       });
       const data = await res.json();
 
-      setCoordinates(data?.features[0]?.geometry?.coordinates);
+      console.log(data);
+
+      // setCoordinates(data?.features[0]?.geometry?.coordinates);
     }
 
     if (sourceCoord && destCoord) getRoute();
