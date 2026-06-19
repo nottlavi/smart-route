@@ -45,8 +45,6 @@ export default function Home() {
       });
       const data = await res.json();
 
-      console.log(data.features.length);
-
       setCoordinates1(data?.features[0]?.geometry?.coordinates);
       setCoordinates2(data?.features[1]?.geometry?.coordinates);
       setCoordinates3(data?.features[2]?.geometry?.coordinates);
