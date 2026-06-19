@@ -11,17 +11,17 @@ export default function Map({
   coordinates2: number[][];
   coordinates3: number[][];
 }) {
-  const leafletCoords1: [number, number][] = coordinates1.map(([lng, lat]) => [
+  const leafletCoords1: [number, number][] = coordinates1?.map(([lng, lat]) => [
     lat,
     lng,
   ]);
 
-  const leafletCoords2: [number, number][] = coordinates2.map(([lng, lat]) => [
+  const leafletCoords2: [number, number][] = coordinates2?.map(([lng, lat]) => [
     lat,
     lng,
   ]);
 
-  const leafletCoords3: [number, number][] = coordinates3.map(([lng, lat]) => [
+  const leafletCoords3: [number, number][] = coordinates3?.map(([lng, lat]) => [
     lat,
     lng,
   ]);
@@ -36,7 +36,7 @@ export default function Map({
 
       <Polyline positions={leafletCoords1} color="red" />
       <Polyline positions={leafletCoords2} color="blue" />
-      <Polyline positions={leafletCoords3} color="yellow" />
+      <Polyline positions={leafletCoords3} color="black" />
     </MapContainer>
   );
 }

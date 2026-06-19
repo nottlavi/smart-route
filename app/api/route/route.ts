@@ -35,6 +35,9 @@ export async function POST(request: Request) {
 
     const data = await res.json();
 
+    console.log(JSON.stringify(data, null, 2));
+    console.log("features:", data.features?.length);
+
     return NextResponse.json(data);
   } catch (err) {
     console.error("Route Handler Exception:", err);
